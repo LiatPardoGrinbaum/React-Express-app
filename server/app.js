@@ -2,7 +2,7 @@ const express = require("express");
 const { default: axios } = require("axios");
 const app = express();
 const cors = require("cors");
-const port = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 
@@ -17,5 +17,5 @@ app.get("/weather/:city", async (req, res) => {
   }
 });
 
-const listenServer = (e) => console.log(e ? "Something went wrong" : "server is listening on port " + port);
-app.listen(port, listenServer);
+const listenServer = (e) => console.log(e ? "Something went wrong" : "server is listening on port " + PORT);
+app.listen(PORT, listenServer);
