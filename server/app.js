@@ -4,6 +4,10 @@ const app = express();
 const cors = require("cors");
 const PORT = process.env.PORT || 5000;
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static());
+}
+
 app.use(cors());
 
 app.get("/weather/:city", async (req, res) => {
